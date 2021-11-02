@@ -1,0 +1,22 @@
+<form (ngSubmit)="addTodo(todoForm)" #todoForm="ngForm" [formGroup]="formGroupTodo">
+    <div class="input-group form-custom mb-3">
+        <mat-form-field appearance="outline" class="d-flex">
+            <mat-label for="name">Enter Todo</mat-label>
+            <input matInput
+              type="text" 
+              id="todo" 
+              name="todo"
+              formControlName="todo"
+              required>
+              <mat-error *ngIf="todo?.invalid">{{getError()}}</mat-error>
+          </mat-form-field>
+
+        <button
+            mat-raised-button 
+            color="primary"
+            class="btn-submit"
+            [disabled]="!formGroupTodo.valid">
+            Submit
+        </button>   
+    </div>
+</form>
